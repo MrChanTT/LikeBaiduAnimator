@@ -6,7 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.animation.LinearInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -81,7 +81,19 @@ public class BaiduProgressBar extends FrameLayout {
 
         animatorSet = new AnimatorSet();
         animatorSet.play(objectAnimatorLeft).with(objectAnimatorRight);
-        animatorSet.setInterpolator(new LinearInterpolator());
+        animatorSet.setInterpolator(new DecelerateInterpolator());
+        /**
+         * AccelerateDecelerateInterpolator 动画的变化速率开始和结束时慢，中间时快
+         * AccelerateInterpolator 开始时比较慢，并且慢慢加速。
+         * AnticipateInterpolator 开始时向后甩然后向前滑到
+         * AnticipateOvershootInterpolator 开始时向后甩然后向前超过终止时的值最后回退到终止的值。
+         * BounceInterpolator 在结束时反弹
+         * CycleInterpolator 动画重复特定的次数，变化速率以正弦曲线变化
+         * DecelerateInterpolator 以一个极快的速率开始慢慢减速
+         * LinearInterpolator 匀速变化
+         * OvershootInterpolator 向前甩一定值后再回到原来位置
+         * */
+
         animatorSet.start();
 
         objectAnimatorLeft.addListener(new Animator.AnimatorListener() {

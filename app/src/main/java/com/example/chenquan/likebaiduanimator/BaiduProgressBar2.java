@@ -93,7 +93,7 @@ public class BaiduProgressBar2 extends View {
 
         valueAnimator.setInterpolator(new LinearInterpolator());
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        valueAnimator.setRepeatCount(-1);
+        valueAnimator.setRepeatCount(-1);//循环
         valueAnimator.setRepeatMode(ValueAnimator.RESTART);
         valueAnimator.setDuration(1000);
         valueAnimator.start();
